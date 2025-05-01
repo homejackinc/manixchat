@@ -1,1 +1,398 @@
-chat
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManixAI - Artificial Intelligence Reimagined </title>
+
+	 <link rel="icon" href="https://manixai.com/logo.svg">
+    <!-- Bootstrap 4 CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+       :root {
+    --rgb-primary: 0, 123, 255;        /* Blue (unchanged) */
+    --rgb-secondary: 108, 117, 125;    /* Gray (unchanged) */
+    --rgb-success: 138, 43, 226;       /* Purple (replaced green) */
+    --rgb-danger: 220, 53, 69;          /* Red (unchanged) */
+    --rgb-warning: 255, 193, 7;        /* Yellow (unchanged) */
+    --rgb-info: 23, 162, 184;          /* Teal (unchanged) */
+} 
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0a0a0a;
+            color: #f8f9fa;
+            overflow-x: hidden;
+        }
+        
+        .navbar {
+            background-color: rgba(10, 10, 10, 0.9) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .rgb-text {
+            background: linear-gradient(90deg, 
+                rgba(var(--rgb-primary), 0.8), 
+                rgba(var(--rgb-success), 0.8), 
+                rgba(var(--rgb-info), 0.8));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+        }
+        
+        .rgb-border {
+            border: 2px solid;
+            border-image: linear-gradient(45deg, 
+                rgba(var(--rgb-primary), 0.8), 
+                rgba(var(--rgb-success), 0.8), 
+                rgba(var(--rgb-info), 0.8)) 1;
+          
+        }
+        
+        .btn-rgb {
+            background: linear-gradient(45deg, 
+                rgba(var(--rgb-primary), 0.8), 
+                rgba(var(--rgb-success), 0.8), 
+                rgba(var(--rgb-info), 0.8));
+            border: none;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn-rgb:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+        
+        .dark-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .dark-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, 
+                rgba(var(--rgb-primary), 0.8), 
+                rgba(var(--rgb-success), 0.8));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 15s infinite alternate;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: translate(0, 0);
+            }
+            50% {
+                transform: translate(25%, 25%);
+            }
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+        }
+        
+        .pricing-card {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid;
+            border-image: linear-gradient(45deg, 
+                rgba(var(--rgb-primary), 0.8), 
+                rgba(var(--rgb-success), 0.8)) 1;
+            transform: scale(1.05);
+        }
+        
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, 
+                rgba(var(--rgb-primary), 0.8), 
+                rgba(var(--rgb-success), 0.8));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        footer {
+            background-color: #0a0a0a;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .social-icon {
+            color: #f8f9fa;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            color: #007bff;
+            transform: translateY(-3px);
+        }
+      
+      .bg-l {
+            background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+      
+        .bg-l::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 15s infinite alternate;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand rgb-text" href="#"><svg width="220" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="aiGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00c6ff" />
+      <stop offset="50%" stop-color="#0072ff" />
+      <stop offset="100%" stop-color="#6a11cb" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Abstract AI Symbol -->
+  <path d="M10 30 
+           Q20 10 30 30 
+           Q40 50 50 30 
+           Q60 10 70 30 
+           Q80 50 90 30" 
+        fill="none" 
+        stroke="url(#aiGradient)" 
+        stroke-width="3" 
+        stroke-linecap="round" />
+  
+  <!-- Company Name -->
+  <text x="105" y="35" font-family="'Arial', sans-serif" font-size="28" font-weight="bold" fill="url(#aiGradient)">
+    Manix<tspan fill="#ffffff">AI</tspan>
+  </text>
+</svg></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    
+                    <li class="nav-item ml-lg-3">
+                        <a class="btn btn-rgb" href="https://manixai.com/join/">Get Started</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 font-weight-bold mb-4">The Fastest <span class="rgb-text">Ai Agent</span> On Earth</h1>
+                    <p class="lead mb-4">Faster outputs without compromise. Supercharge your favorite AI models by reducing API calls by 70%</p>
+                    <div class="d-flex flex-wrap">
+                        <a href="https://manixai.com/join/" class="btn btn-rgb btn-lg mr-3 mb-3">Get started</a>
+                        <a href="https://manixai.com/invite/" class="btn btn-outline-light btn-lg mb-3">Activate</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://pbs.twimg.com/media/GoJMO8nWAAAME9r?format=jpg&name=small" alt="AI Dashboard" class="img-fluid rounded rgb-border">
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="h1 font-weight-bold rgb-text mb-3">Advanced Caching Capabilities</h2>
+                <p class="lead text-muted">Unlock the full potential of top artificial intelligence models without compromise.</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="dark-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain rgb-text"></i>
+                        </div>
+                        <h4 class="font-weight-bold">Model handoff algorithms</h4>
+                        <p class="text-muted">Advanced re-purposing fom a growing network of caches</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="dark-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line rgb-text"></i>
+                        </div>
+                        <h4 class="font-weight-bold">Predictive Analytics</h4>
+                        <p class="text-muted">Forecast future trends and behaviors with unprecedented accuracy using our predictive models.</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="dark-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-language rgb-text"></i>
+                        </div>
+                        <h4 class="font-weight-bold">Natural Language Processing</h4>
+                        <p class="text-muted">Understand and generate human language with our state-of-the-art NLP algorithms.</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="dark-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-eye rgb-text"></i>
+                        </div>
+                        <h4 class="font-weight-bold">Computer Vision</h4>
+                        <p class="text-muted">Extract meaningful information from images and videos with our advanced visual recognition.</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="dark-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot rgb-text"></i>
+                        </div>
+                        <h4 class="font-weight-bold">Automation</h4>
+                        <p class="text-muted">Streamline repetitive tasks and processes with our intelligent automation solutions with playwright baked in</p>
+                        
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="dark-card p-4 h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt rgb-text"></i>
+                        </div>
+                        <h4 class="font-weight-bold">Security</h4>
+                        <p class="text-muted">Protect your data by toggeling on the fly where your data goes or don't go.</p>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ 
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5 class="rgb-text font-weight-bold mb-3">ManixAI</h5>
+                    <p class="text-muted small">The most advanced artificial intelligence platform for businesses of all sizes.</p>
+                    
+              
+            </div>
+            <hr class="my-4 bg-secondary">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-left">
+                    <p class="small text-muted mb-0">© 2025 ManixAI. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-right">
+                    <p class="small text-muted mb-0">Made with <i class="fas fa-heart text-danger"></i> for AI enthusiasts</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 4 JS and dependencies -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+     $(document).ready(function(){
+    // Smooth scrolling for all links
+    $("a").on('click', function(e) {
+        if (this.hash !== "") {
+            e.preventDefault();
+            var hash = this.hash;
+            
+            $('html, body').animate(
+                { scrollTop: $(hash).offset().top - 69 }, // Adjust for navbar height
+                800,
+                function() {
+                    window.location.hash = hash;
+                }
+            );
+        }
+    });
+});
+            
+            // Add shadow to navbar on scroll
+            $(window).scroll(function() {
+                if ($(this).scrollTop() > 50) {
+                    $('.navbar').addClass('shadow');
+                } else {
+                    $('.navbar').removeClass('shadow');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
